@@ -6,7 +6,8 @@
   },
   "pageSource": "src/routes/kb/incidents/4471-review/+page.svx",
   "renderedPage": "rendered/kb/incidents/4471-review/index.html",
-  "courseStage": "step one accepted; engineering update found; applying distinct desk resolutions before resubmission",
+  "courseStage": "solved; course accepted the fourth claim at 2026-10-30T13:36:34Z; debrief saved",
   "closureScope": "Desk reports parser FIXED (completed), hint WON'T FIX because booking-v3 retired (not_planned); see evidence/desk-update.json",
-  "refreshedExportComparison": "All ZIP members identical to the originally supplied export after step one"
+  "refreshedExportComparison": "All ZIP members identical to the originally supplied export after step one",
+  "debrief": "https://hq.mega.dev/challenges/what-it-shows#debrief"
 }
