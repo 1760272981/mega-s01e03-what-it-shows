@@ -42,10 +42,10 @@ No report in this group is in the desk's oneDayMove annotation list.
 
 R-41230, R-41241, R-41251, R-41259, R-41262, R-41275, R-41294, R-41305, R-41308, R-41366, R-41372, R-41384, R-41387, R-41396, R-41400, R-41406, R-41415, R-41416, R-41418, R-41428, R-41439, R-41441, R-41449, R-41453, R-41456, R-41460, R-41472, R-41485, R-41493, R-41539, R-41572, R-41582, R-41584
 
-## Course acceptance status
+## Desk resolution
 
-The course accepted the two tickets at step one. The signed .svx, rendered HTML, report-ID audit, and browser checks are published, but the complete challenge has not been accepted.
+Source: https://hq.mega.dev/challenges/what-it-shows#engineering-update (read 2026-10-30). The engineering update states: #4471 · closed 05 oct.
 
-This ticket was closed prematurely after the analysis handoff. The course rejected that closure, so it is reopened. Completing the analysis does not establish that the desk's work on #4471 is done. No production fix or executed remediation check is claimed.
+WON'T FIX — booking-v3 form retired. Close as not planned, not as a shipped hint fix.
 
-The course says things moved after the first submission. As of this check, the refreshed export has identical archive members, and the challenge page, issue comments, timelines, and body-edit history have not supplied the corresponding change. Closure awaits evidence of the desk's updated work and the appropriate resolution. The five annotated reports remain visible and counted once.
+This supersedes the premature analysis-only closure. Resolution is based on the desk update, not a production change or live reproduction performed in this repository. Historical report counts and annotations are unchanged.

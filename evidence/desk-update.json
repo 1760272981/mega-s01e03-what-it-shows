@@ -1,0 +1,9 @@
+{
+  "source": "https://hq.mega.dev/challenges/what-it-shows#engineering-update",
+  "observedAt": "2026-10-30T13:32:39Z",
+  "heading": "engineering update",
+  "ticket": "#4471 · closed 05 oct",
+  "parser": {"status": "FIXED", "detail": "fix(dates): parse dd/mm for eu locales", "githubStateReason": "completed"},
+  "hint": {"status": "WON'T FIX", "detail": "booking-v3 form retired", "githubStateReason": "not_planned"},
+  "evidenceMethod": "Visible course page screenshot and Windows UI Automation text; neither a production patch nor a live bug reproduction."
+}

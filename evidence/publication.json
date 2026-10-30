@@ -6,7 +6,7 @@
   },
   "pageSource": "src/routes/kb/incidents/4471-review/+page.svx",
   "renderedPage": "rendered/kb/incidents/4471-review/index.html",
-  "courseStage": "step one accepted; second claim rejected; both tickets reopened pending evidence of the desk's changed work",
-  "closureScope": "Premature closure corrected; analysis handoff is not evidence that the desk's work is done; no production fix claimed",
+  "courseStage": "step one accepted; engineering update found; applying distinct desk resolutions before resubmission",
+  "closureScope": "Desk reports parser FIXED (completed), hint WON'T FIX because booking-v3 retired (not_planned); see evidence/desk-update.json",
   "refreshedExportComparison": "All ZIP members identical to the originally supplied export after step one"
 }

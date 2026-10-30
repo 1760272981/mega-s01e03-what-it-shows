@@ -5,7 +5,16 @@ owner Codex, assisting Homer
 reviewed
 reviewed 2026-10-30 · 0 days ago
 
-The original incident page says “one issue, one fix queued.” The exported data and the logic behind its own table disagree: the shared date parser and the booking form’s date hint require separate fixes and separate tickets. This is a reassessment of the supplied export, not a claim that either fix has shipped.
+The original incident page says “one issue, one fix queued.” The exported data and the logic behind its own table disagree: the shared date parser and the booking form’s date hint are separate problems requiring separate tickets and resolutions. The analysis below describes the export; the later desk update supplies their current disposition.
+
+Desk update: two different resolutions
+
+The course challenge page now shows an engineering update: “#4471 · closed 05 oct”. Read on 30 October 2026:
+
+Parser — FIXED: “fix(dates): parse dd/mm for eu locales”. Close the parser issue as completed.
+Hint — WON’T FIX: “booking-v3 form retired”. Close the form-hint issue as not planned; retiring the form is not a fix to its hint.
+
+These resolutions come from the desk’s update, not from changes to production code in this repository. The export predates that update. Its historical counts and the five anomalous reports remain intact; the update does not supply individual reproductions for those anomalies. The proposed checks below record the original analysis, not tests we have run against production.
 
 Count the reports, then classify them
 

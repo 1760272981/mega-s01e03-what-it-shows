@@ -9,11 +9,11 @@
 		<link href="../../../_app/immutable/chunks/Cq01Gh6Q.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/2D1cxmbv.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CQJJEalF.js" rel="modulepreload">
-		<link href="../../../_app/immutable/entry/app.DoGClsZR.js" rel="modulepreload">
+		<link href="../../../_app/immutable/entry/app.BzIb4Rom.js" rel="modulepreload">
 		<link href="../../../_app/immutable/nodes/0.Bxxzqp7H.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
-		<link href="../../../_app/immutable/nodes/6.M_Tiq3f0.js" rel="modulepreload">
-		<link href="../../../_app/immutable/chunks/BtgBJb5W.js" rel="modulepreload">
+		<link href="../../../_app/immutable/nodes/6.CsdWFHEe.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/BATBMqL0.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CnzFfRdU.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/Dh63krjs.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/DrPThg5V.js" rel="modulepreload">
@@ -28,8 +28,12 @@
   </head>
   <body data-sveltekit-preload-data="hover"><div style="display: contents"><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[-1--><!--[--><div class="kb svelte-e2jw2j"><header><a class="crumb svelte-e2jw2j" href="/kb">support desk · kb</a> <h1 class="svelte-e2jw2j">#4471 reassessed: separate the parser from the form hint</h1> <p class="meta svelte-e2jw2j"><span>owner <b>Codex, assisting Homer</b></span> <span class="status reviewed svelte-e2jw2j">reviewed</span> <span class="svelte-e2jw2j">reviewed 2026-10-30 · 0 days ago</span></p></header> <!--[-1--><!--]--> <main><p>The original <a href="/kb/incidents/4471/">incident page</a> says “one issue, one fix queued.”
 The exported data and the logic behind its own table disagree: the shared date parser and
-the booking form’s date hint require separate fixes and separate tickets.
-This is a reassessment of the supplied export, not a claim that either fix has shipped.</p> <h2>Count the reports, then classify them</h2> <!--[0--><p><strong>427</strong> exported rows contain <strong>15</strong> repeated rows.
+the booking form’s date hint are separate problems requiring separate tickets and resolutions.
+The analysis below describes the export; the later desk update supplies their current disposition.</p> <h2>Desk update: two different resolutions</h2> <p>The <a href="https://hq.mega.dev/challenges/what-it-shows#engineering-update" rel="nofollow">course challenge page</a> now shows an engineering update: “#4471 · closed 05 oct”. Read on 30 October 2026:</p> <ul><li><strong>Parser — FIXED:</strong> “fix(dates): parse dd/mm for eu locales”. Close the parser issue as completed.</li> <li><strong>Hint — WON’T FIX:</strong> “booking-v3 form retired”. Close the form-hint issue as not planned;
+retiring the form is not a fix to its hint.</li></ul> <p>These resolutions come from the desk’s update, not from changes to production code in this repository.
+The export predates that update. Its historical counts and the five anomalous reports remain intact;
+the update does not supply individual reproductions for those anomalies. The proposed checks below
+record the original analysis, not tests we have run against production.</p> <h2>Count the reports, then classify them</h2> <!--[0--><p><strong>427</strong> exported rows contain <strong>15</strong> repeated rows.
     After deduplication by report ID and filtering to <code>mergedInto === 4471</code>, <strong>412</strong> reports remain in <strong>2</strong> groups.</p> <p><strong>38</strong> intake tags disagree with the tenant-based classification.
     Intake tags and the reporter's browser locale are not the grouping rule.</p> <p>Conflicting repeated IDs: <strong>0</strong>.</p><!--]--><!----> <div class="table-scroll svelte-w4rwz6"><p class="sum svelte-12oyimm"><strong>412</strong> reports merged into #4471 · <strong>2</strong> causes</p> <table><thead><tr><th>cause</th><th>reports</th><th>tagged as</th><th>tenants</th><th>seen</th><th></th></tr></thead><tbody><!--[--><tr class="svelte-12oyimm"><td class="svelte-12oyimm"><code>parser</code></td><td class="svelte-12oyimm">379</td><td class="tags svelte-12oyimm">parser ×356 · hint ×23</td><td class="svelte-12oyimm">11</td><td class="svelte-12oyimm">2026-04-01 → 2026-10-04</td><td class="svelte-12oyimm">#4471</td></tr><tr class="svelte-12oyimm wrong"><td class="svelte-12oyimm"><code>hint</code></td><td class="svelte-12oyimm">33</td><td class="tags svelte-12oyimm">hint ×18 · parser ×15</td><td class="svelte-12oyimm">3</td><td class="svelte-12oyimm">2026-04-17 → 2026-09-22</td><td class="svelte-12oyimm">not this ticket — no ticket of its own</td></tr><!--]--></tbody></table> <!--[--><!--[0--><p class="note svelte-12oyimm">5 reports read as a one-day move; filed under <code>parser</code> by tenant.</p><!--]--><!--[-1--><!--]--><!--]--><!----></div> <p>The table above uses the supplied <code>uniqueById</code>, <code>groupByCause</code>, <code>causeOf</code>, and tenant directory.
 Its <code>#4471</code> marker identifies the existing ticket’s majority cause; “no ticket of its own”
@@ -72,16 +76,16 @@ rebuild it when the source or data changes.</p> <!--[0--><p class="stamp svelte-
 			
 			<script>
 				{
-					__sveltekit_rd9f4u = {
+					__sveltekit_uleuag = {
 						base: new URL("../../..", location).pathname.slice(0, -1),
-						version: "1793364668781"
+						version: "1793367202461"
 					};
 
 					const element = document.currentScript.parentElement;
 
 					import("../../../_app/immutable/entry/start.DUYmlmhK.js").then(async (kit) => {
-						kit.init(__sveltekit_rd9f4u);
-						const app = await import("../../../_app/immutable/entry/app.DoGClsZR.js");
+						kit.init(__sveltekit_uleuag);
+						const app = await import("../../../_app/immutable/entry/app.BzIb4Rom.js");
 						kit.start(app, element, {
 							node_ids: [0, 6],
 							data: [null,null],
