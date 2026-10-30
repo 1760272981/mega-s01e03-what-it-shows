@@ -5,5 +5,8 @@
     "hint": "https://github.com/1760272981/mega-s01e03-what-it-shows/issues/2"
   },
   "pageSource": "src/routes/kb/incidents/4471-review/+page.svx",
-  "renderedPage": "rendered/kb/incidents/4471-review/index.html"
+  "renderedPage": "rendered/kb/incidents/4471-review/index.html",
+  "courseStage": "step one accepted; analysis and signed rendered page delivered; exercise tickets being closed for resubmission",
+  "closureScope": "Analysis and documentation handoff only; no production fix claimed",
+  "refreshedExportComparison": "All ZIP members identical to the originally supplied export after step one"
 }
