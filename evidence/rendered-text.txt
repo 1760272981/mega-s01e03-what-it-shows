@@ -158,6 +158,6 @@ The exported reports, tenant directory, desk notes, and supplied classification 
 
 The GitHub issues track the two separate problems identified here. Their report totals describe this export snapshot, not a live count of the desk’s queue. The rendered copy of this page is a build artifact; rebuild it when the source or data changes.
 
-desk ref DR-6RPJ-6MHE
+desk ref DR-DXC4-DMFX
 
 Pages are written by people. Tables and charts are built from data at render time.

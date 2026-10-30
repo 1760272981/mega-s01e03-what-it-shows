@@ -4,7 +4,7 @@ title: '#4471 reassessed: separate the parser from the form hint'
 owner: 'Codex, assisting Homer'
 status: reviewed
 reviewed: '2026-10-30'
-signature: 'Codex for Homer (1760272981), S01E03, 2026-10-30'
+signature: 'v1.eyJzdWIiOiI4MzMwIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMzNjczMzUsImV4cCI6MTc5MzQ1MzczNX0.PCjgnU_Nu5PZ5mbVRmbIwDj8dLoxdPsfN0GL777RSKk'
 ---
 
 <script>

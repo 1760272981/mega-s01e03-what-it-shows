@@ -1,1 +1,0 @@
-export{n as component}from"../chunks/BATBMqL0.js";
