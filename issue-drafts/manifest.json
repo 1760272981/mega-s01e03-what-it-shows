@@ -1,0 +1,14 @@
+[
+  {
+    "cause": "parser",
+    "title": "Shared parser reads day-first tenant dates as month-first (379 reports)",
+    "bodyFile": "issue-drafts/parser.md",
+    "count": 379
+  },
+  {
+    "cause": "hint",
+    "title": "booking-v3 date hint contradicts day-first tenant interpretation (33 reports)",
+    "bodyFile": "issue-drafts/hint.md",
+    "count": 33
+  }
+]

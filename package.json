@@ -1,0 +1,22 @@
+{
+  "name": "mega-s01e03-support-kb",
+  "private": true,
+  "type": "module",
+  "imports": { "#lib/*": "./src/lib/*" },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "audit": "node --experimental-strip-types scripts/audit.mjs",
+    "build": "npm run audit && vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "devDependencies": {
+    "@opentelemetry/api": "^1.9.0",
+    "@sveltejs/adapter-static": "^4.0.0",
+    "@sveltejs/kit": "3.1.1",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "mdsvex": "^0.12.8",
+    "svelte": "^5.57.1",
+    "typescript": "^6.0.0",
+    "vite": "^8.0.12"
+  }
+}

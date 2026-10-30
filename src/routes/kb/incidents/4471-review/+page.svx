@@ -1,0 +1,124 @@
+---
+layout: runbook
+title: '#4471 reassessed: separate the parser from the form hint'
+owner: 'Codex, assisting Homer'
+status: reviewed
+reviewed: '2026-10-30'
+signature: 'Codex for Homer (1760272981), S01E03, 2026-10-30'
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import ReviewEvidence from '#lib/kb/ReviewEvidence.svelte';
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+</script>
+
+<style>
+  .table-scroll { overflow-x: auto; }
+  .table-scroll :global(th), .table-scroll :global(td code) { white-space: nowrap; }
+  :global(.kb) { overflow-wrap: anywhere; }
+</style>
+
+The original [incident page](/kb/incidents/4471/) says “one issue, one fix queued.”
+The exported data and the logic behind its own table disagree: the shared date parser and
+the booking form's date hint require separate fixes and separate tickets.
+This is a reassessment of the supplied export, not a claim that either fix has shipped.
+
+## Count the reports, then classify them
+
+<ReviewEvidence section="counts" />
+
+<div class="table-scroll"><CauseTable ticket={4471} /></div>
+
+The table above uses the supplied `uniqueById`, `groupByCause`, `causeOf`, and tenant directory.
+Its `#4471` marker identifies the existing ticket's majority cause; “no ticket of its own”
+describes the exported desk system, not the new GitHub issues prepared for this review.
+
+## Parser: the tenant writes the day first; the shared parser reads the month first
+
+The shared parser reads month first regardless of the tenant's date convention.
+For a day-first tenant, an input meaning 7 April can become 4 July.
+The affected group includes app and email reports, and form reports using the older booking form.
+Changing the visible hint alone does not repair this parsing path.
+
+The parser ticket should make parsing follow an explicit, agreed date format and preserve
+the intended calendar date. It should test both ambiguous dates (where both numbers are valid months)
+and unambiguous dates, across the affected input channels. These are proposed acceptance checks;
+the export does not contain the production parser to patch or reproduce directly.
+
+## Form hint: what people are told to type disagrees with how the form reads it
+
+For day-first tenants using `booking-v3`, form submissions are a separate `hint` group.
+The form displays `MM/DD/YYYY`, but reads the entry according to the tenant's date order.
+A person following that hint can therefore get a different date despite following the instructions.
+Fix the hint and the form's interpretation together; do not assume a parser fix elsewhere fixes it.
+
+The form ticket should check the displayed instruction, the submitted value, and the resulting
+calendar date together for each affected tenant. App or email reports from those same tenants
+still belong to the parser group: tenant identity alone is not sufficient to classify the report.
+
+## Receipt dates show impact; merge dates show desk work
+
+<QueueTimeline ticket={4471} />
+
+<div class="table-scroll"><ReviewEvidence section="timeline" /></div>
+
+Reports start arriving before the large merge batch. The batch is not evidence that the bug began
+on the merge date, and a falling merge count is not evidence that users stopped experiencing it.
+The export continues to contain received reports after that batch. Use received time to describe
+reported impact, and merge time to describe the desk's handling of the queue.
+
+## Keep the unusual reports visible
+
+<Callout kind="warn">
+  A deterministic classification is not a verified root cause for every individual report.
+  Preserve the desk's counts while retaining the contrary evidence.
+</Callout>
+
+<ReviewEvidence section="exceptions" />
+
+These descriptions include one-day shifts, different displayed days across cities, and an invite
+arriving before booking. They do not establish that month/day swapping explains every symptom.
+The supplied `readAs` function deliberately annotates these reports inside their existing group.
+Follow that counting convention, retain the exact report IDs and descriptions, and ask the desk to
+reproduce the anomalous cases with the original input, stored date, timezone, and delivery timestamps.
+Timezone conversion or delivery ordering are hypotheses to investigate, not diagnoses established here.
+If investigation confirms another cause, reassign the affected IDs and recompute the totals rather
+than double-counting them.
+
+## Triage by cause, not by the subject line
+
+The accepted [decision 0001](/kb/decisions/0001-dedupe-by-subject/) and
+[triage page](/kb/triage/dedupe/) tell the desk to merge matching subjects.
+The executable examples show why that rule loses information: matching subjects can describe
+different causes, and different subjects can describe the same cause.
+
+<DedupeExplorer />
+
+For this incident, look up the tenant's locale and form version, then inspect the report's channel.
+Use `Intl.DateTimeFormat(...).formatToParts(...)` through the supplied `dayFirst` function rather
+than maintaining a hand-written list of locales. An unknown tenant produces no classified cause;
+it is not permission to merge two unknown reports together.
+
+The desk should replace subject-only merging with a new reviewed decision based on this evidence.
+Decision 0001 remains unchanged as an accepted historical record. This review recommends a change;
+it does not invent approval from the desk.
+
+## Evidence and refresh procedure
+
+Track the fixes separately in [the parser issue](https://github.com/1760272981/mega-s01e03-what-it-shows/issues/1)
+and [the form-hint issue](https://github.com/1760272981/mega-s01e03-what-it-shows/issues/2).
+
+The exported reports, tenant directory, desk notes, and supplied classification functions are the
+evidence used here. Run `npm run build` after updating those inputs. The page's tables, annotations,
+timeline, and desk reference are calculated by components; the issue drafts and report-ID membership
+lists are regenerated by `npm run audit`. Review the changes before publishing updated issue counts.
+
+The GitHub issues track the two separate problems identified here. Their report totals describe this
+export snapshot, not a live count of the desk's queue. The rendered copy of this page is a build artifact;
+rebuild it when the source or data changes.
+
+<RenderStamp {signature} />

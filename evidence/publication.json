@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/1760272981/mega-s01e03-what-it-shows",
+  "issues": {
+    "parser": "https://github.com/1760272981/mega-s01e03-what-it-shows/issues/1",
+    "hint": "https://github.com/1760272981/mega-s01e03-what-it-shows/issues/2"
+  },
+  "pageSource": "src/routes/kb/incidents/4471-review/+page.svx",
+  "renderedPage": "rendered/kb/incidents/4471-review/index.html"
+}

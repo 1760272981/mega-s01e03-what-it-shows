@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-30T12:53:10.871Z",
+  "url": "http://127.0.0.1:4173/kb/incidents/4471-review/",
+  "verified": [
+    "HTTP 200",
+    "derived counts",
+    "exact anomalous report bodies",
+    "timeline bars",
+    "interactive cause comparison",
+    "signed desk reference",
+    "KB index entry",
+    "no browser errors or failed requests"
+  ],
+  "mobileOverflow": false,
+  "errors": [],
+  "failedRequests": []
+}
